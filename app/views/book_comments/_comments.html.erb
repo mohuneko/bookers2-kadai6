@@ -1,0 +1,15 @@
+
+
+		<% comments.each do |comment| %>
+			<div id="#book_comment-<%= comment.id %>">
+			<div class="comment-text">
+			<%= comment.comment %>
+		    </div>
+			
+			<% if user_signed_in? && comment.user_id == current_user.id %>
+				<%= link_to 'Destroy', book_book_comments_path(comment.id), method: :delete, remote: true %>
+			<% end %>
+		    </div>
+		<% end %>
+
+

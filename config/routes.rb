@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   	resource :favorites, only: [:create, :destroy]
   	resource :book_comments, only: [:create, :destroy]
   end
+  resources :books, shallow: true do
+  	resources :book_comments, only: %i[create edit update destroy]
+  end
 end
